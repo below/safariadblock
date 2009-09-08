@@ -472,7 +472,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "cp \"$PROJECT_DIR/Resources/Info\" \"$DSTROOT/Library/InputManagers/Safari AdBlock/Info\"\n\nif [ \"$ACTION\" = \"install\" ]; then\n\n\tfind \"$DSTROOT\" -name \".DS_Store\" -exec rm -f {} \\;\n\n\tchown -R root:admin \"$DSTROOT/Library\"\n\tchmod 1775 \"$DSTROOT/Library\"\n\tchmod -R 0755 \"$DSTROOT/Library/InputManagers\"\n\n\tPKG=\"$CONFIGURATION_BUILD_DIR/Safari AdBlock $CURRENT_PROJECT_VERSION.pkg\"\n\tpackagemaker \\\n\t\t--root \"$DSTROOT\"\\\n\t \t--id \"net.sourceforge.SafariAdBlock\"\\\n\t\t--version \"$CURRENT_PROJECT_VERSION\"\\\n\t\t--target 10.5\\\n\t\t--no-recommend\\\n\t\t--title \"Safari AdBlock\"\\\n\t\t--out \"$PKG\"\n\n\t# DMGs are so 1990s\n\t# rm -f \"$CONFIGURATION_BUILD_DIR/Safari_AdBlock_$CURRENT_PROJECT_VERSION.dmg\"\n\t# cp \"$PROJECT_DIR/Installer/Safari AdBlock.dmg\" \"$CONFIGURATION_BUILD_DIR/Safari AdBlock.temp.dmg\"\n\t# hdiutil attach \"$CONFIGURATION_BUILD_DIR/Safari AdBlock.temp.dmg\"\n\t# cp \"$PKG\" \"/Volumes/Safari AdBlock/Install Safari AdBlock.pkg\"\n\t# rm -f \"$CONFIGURATION_BUILD_DIR/Install Safari AdBlock.pkg\"\n\t# hdiutil detach \"/Volumes/Safari AdBlock\"\n\t# hdiutil resize -sectors min \"$CONFIGURATION_BUILD_DIR/Safari AdBlock.temp.dmg\"\n\t# hdiutil convert \"$CONFIGURATION_BUILD_DIR/Safari AdBlock.temp.dmg\" -format UDBZ -o \"$CONFIGURATION_BUILD_DIR/Safari_AdBlock_$CURRENT_PROJECT_VERSION.dmg\"\n\t# rm -f \"$CONFIGURATION_BUILD_DIR/Safari AdBlock.temp.dmg\"\n\nfi";
+			shellScript = "cp \"$PROJECT_DIR/Resources/Info\" \"$DSTROOT/Library/InputManagers/Safari AdBlock/Info\"\n\nif [ \"$ACTION\" = \"install\" ]; then\n\n\tfind \"$DSTROOT\" -name \".DS_Store\" -exec rm -f {} \\;\n\n\tchown -R root:admin \"$DSTROOT/Library\"\n\tchmod 1775 \"$DSTROOT/Library\"\n\tchmod -R 0755 \"$DSTROOT/Library/InputManagers\"\n\n\tPKG=\"$CONFIGURATION_BUILD_DIR/Safari AdBlock $CURRENT_PROJECT_VERSION.pkg\"\n\n\tpackagemaker \\\n\t\t--root \"$DSTROOT\"\\\n\t \t--id \"net.sourceforge.SafariAdBlock\"\\\n\t\t--version \"$CURRENT_PROJECT_VERSION\"\\\n\t\t--target 10.5\\\n\t\t--no-recommend\\\n\t\t--title \"Safari AdBlock\"\\\n\t\t--out \"$PKG\"\n\n\t# DMGs are so 1990s\n\t# rm -f \"$CONFIGURATION_BUILD_DIR/Safari_AdBlock_$CURRENT_PROJECT_VERSION.dmg\"\n\t# cp \"$PROJECT_DIR/Installer/Safari AdBlock.dmg\" \"$CONFIGURATION_BUILD_DIR/Safari AdBlock.temp.dmg\"\n\t# hdiutil attach \"$CONFIGURATION_BUILD_DIR/Safari AdBlock.temp.dmg\"\n\t# cp \"$PKG\" \"/Volumes/Safari AdBlock/Install Safari AdBlock.pkg\"\n\t# rm -f \"$CONFIGURATION_BUILD_DIR/Install Safari AdBlock.pkg\"\n\t# hdiutil detach \"/Volumes/Safari AdBlock\"\n\t# hdiutil resize -sectors min \"$CONFIGURATION_BUILD_DIR/Safari AdBlock.temp.dmg\"\n\t# hdiutil convert \"$CONFIGURATION_BUILD_DIR/Safari AdBlock.temp.dmg\" -format UDBZ -o \"$CONFIGURATION_BUILD_DIR/Safari_AdBlock_$CURRENT_PROJECT_VERSION.dmg\"\n\t# rm -f \"$CONFIGURATION_BUILD_DIR/Safari AdBlock.temp.dmg\"\n\nfi";
 		};
 		5BF407F70E09BA2100134021 /* Make appcast */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -626,12 +626,10 @@
 		1DEB914008733D840010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				BUNDLE_LOADER = /Applications/Safari.app/Contents/MacOS/Safari;
-				CURRENT_PROJECT_VERSION = "0.4.0 RC3";
+				CURRENT_PROJECT_VERSION = "0.5.0 B1";
 				DSTROOT = "$(BUILT_PRODUCTS_DIR)/$(PROJECT_NAME).dst";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
